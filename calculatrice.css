@@ -73,10 +73,9 @@ button:hover {
 
 .windowHistorique {
     background-color: black;
-    position: absolute;
-    width: fit-content;
-    height: fit-content;
-    z-index: 1;
+    height: 300px;
+    overflow-y: auto;
+    overflow-x: auto;
     opacity: 0.8;
     border-radius: 10px;
     font-family: "Orbitron", sans-serif;
@@ -85,16 +84,13 @@ button:hover {
 
 .historique p, .result p{
     padding-left: 5px;
-    overflow-x: scroll;
 }
 
 .historique {
-    width: 50%;
     float: left;
 }
 
 .result {
-    width: 50%;
     float: right;
 }
 

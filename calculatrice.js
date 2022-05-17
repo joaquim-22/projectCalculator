@@ -140,7 +140,6 @@ document.addEventListener("keydown", function(event) {
         for (let i = 0; i < buttons.length; i++){
             let id = buttons[i].getAttribute("data-id");
             if (id == event.key) {
-                console.log()
                 buttons[i].click();
             }
         }
@@ -156,9 +155,9 @@ window.addEventListener('error', () => {
 
 // Toggle Recap
 
-let historiqueButton = document.querySelector(".historiqueButton")
-let windowHistorique = document.querySelector(".windowHistorique")
-windowHistorique.style.display = "none"
+let historiqueButton = document.querySelector(".historiqueButton");
+let windowHistorique = document.querySelector(".windowHistorique");
+windowHistorique.style.display = "none";
 
 historiqueButton.addEventListener("click", function toggle() {
 
@@ -166,6 +165,6 @@ historiqueButton.addEventListener("click", function toggle() {
         windowHistorique.style.display = "block";
     }
     else {
-        windowHistorique.style.display = "none"
+        windowHistorique.style.display = "none";
     }
 })
