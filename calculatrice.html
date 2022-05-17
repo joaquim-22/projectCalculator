@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="calculatrice.css">
+</head>
+<body>
+    <div class="container">
+        <a class="historiqueButton" data-id = "undefined">RECAP</a>
+        <div class="container-output">
+            <div class="ancienOutput">0</div>
+            <div class="output">0</div>
+        </div>
+        <button class="operators" data-type="operator" data-id="+">+</button>
+        <button class="operators" data-type="operator" data-id="-">-</button>
+        <button class="operators" data-type="operator" data-id="*">*</button>
+        <button class="operators" data-type="operator" data-id="/">/</button>
+        <button class="operators" data-type="number" data-id="(">(</button>
+        <button class="operators" data-type="number" data-id=")">)</button>
+        <button class="operators" data-type="operator" data-id="%">%</button>
+        <button class="operators" data-type="racine" data-id="√">√</button>
+        <button class="operators" data-type="round" data-id="">RND</button>
+        <button data-type="number" data-id="7">7</button>
+        <button data-type="number" data-id="8">8</button>
+        <button data-type="number" data-id="9">9</button>
+        <button data-type="number" data-id="4">4</button>
+        <button data-type="number" data-id="5">5</button>
+        <button data-type="number" data-id="6">6</button>
+        <button data-type="number" data-id="1">1</button>
+        <button data-type="number" data-id="2">2</button>
+        <button data-type="number" data-id="3">3</button>
+        <button data-type="number" data-id="0">0</button>
+        <button class="deleteButton" data-type="clear" data-id="C" id="clear">C</button>
+        <button class="deleteButton" data-type="allClear" data-id="AC" id="allClear">AC</button>
+        <button class="operators" data-type="egal" data-id="=" id="egal">=</button>
+        <button class="operators" data-type="point" data-id=".">.</button>
+        <div class="windowHistorique">
+            <div class="historique"></div>
+            <div class="result"></div>
+        </div>
+    </div>
+    <script src="calculatrice.js"></script>
+</body>
+</html>
