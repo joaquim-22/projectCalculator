@@ -34,7 +34,19 @@ for (let i = 0; i < buttons.length; i++) {
                 break;
             
             case "round":
-                mathRound()
+                mathRound();
+                break;
+
+            case "factorial":
+                factorial();
+                break;
+
+            case "mathPi":
+                pi()
+                break;
+
+            case "floor":
+                mathFloor();
                 break;
 
             case "point":
@@ -53,14 +65,14 @@ for (let i = 0; i < buttons.length; i++) {
 }
 
 function allClear() {
-    number = ""
+    number = "";
     equation = "";
     output.innerHTML = 0;
     ancienOutput.innerHTML = 0;
 }
 
 function clear() {
-    output.innerHTML = output.innerHTML.slice(0, -1)
+    output.innerHTML = output.innerHTML.slice(0, -1);
     number = output.innerHTML;
     equation = output.innerHTML;
     if(output.innerHTML.length == 0) {
@@ -75,13 +87,82 @@ function operator() {
 }
 
 function egalRacine(){
+    newHistorique = document.createElement("p");
+    historiqueText = document.createTextNode(equation + "√");
+    newHistorique.appendChild(historiqueText);
+    historiqueElement.appendChild(newHistorique);
+
     number = Math.sqrt(equation);
+
+    newResult = document.createElement("p");
+    resultText = document.createTextNode(number);
+    newResult.appendChild(resultText);
+    resultElement.appendChild(newResult);
+
     equation = number;
     output.innerHTML = number;
 }
 
 function mathRound (){
-    number = Math.round(number)
+    newHistorique = document.createElement("p");
+    historiqueText = document.createTextNode(equation + " Round");
+    newHistorique.appendChild(historiqueText);
+    historiqueElement.appendChild(newHistorique);
+
+    number = Math.round(number);
+    equation = number;
+
+    newResult = document.createElement("p");
+    resultText = document.createTextNode(+ number);
+    newResult.appendChild(resultText);
+    resultElement.appendChild(newResult);
+
+    output.innerHTML = number;
+}
+
+function mathFloor (){
+    newHistorique = document.createElement("p");
+    historiqueText = document.createTextNode(equation + " Floor");
+    newHistorique.appendChild(historiqueText);
+    historiqueElement.appendChild(newHistorique);
+
+    number = Math.floor(number);
+    equation = number;
+
+    newResult = document.createElement("p");
+    resultText = document.createTextNode(number);
+    newResult.appendChild(resultText);
+    resultElement.appendChild(newResult);
+
+    output.innerHTML = number;
+}
+
+function factorial (){
+    newHistorique = document.createElement("p");
+    historiqueText = document.createTextNode(equation + "!");
+    newHistorique.appendChild(historiqueText);
+    historiqueElement.appendChild(newHistorique);
+
+    let val = 1;
+    for (var i = 2; i <= equation; i++) {
+        val = val * i; 
+    }
+
+    equation = val;
+    ancienOutput.innerHTML = equation;
+    number = val;
+    output.innerHTML = number;
+
+    newResult = document.createElement("p");
+    resultText = document.createTextNode(val);
+    newResult.appendChild(resultText);
+    resultElement.appendChild(newResult);
+}
+
+function pi () {
+    number = Math.PI;
+    ancienOutput.innerHTML = equation;
+    equation += number;
     output.innerHTML = number;
 }
 
@@ -93,25 +174,25 @@ function pointSymbol () {
 }
 
 function egal() {
-    newHistorique = document.createElement("p")
-    historiqueText = document.createTextNode(equation)
-    newHistorique.appendChild(historiqueText)
-    historiqueElement.appendChild(newHistorique)
+    newHistorique = document.createElement("p");
+    historiqueText = document.createTextNode(equation);
+    newHistorique.appendChild(historiqueText);
+    historiqueElement.appendChild(newHistorique);
 
     number = eval(equation);
 
     if(number == undefined) {
         equation = "";
         number = "";
-        return false
-    }
+        return false;
+    };
 
     equation = number;
 
-    newResult = document.createElement("p")
-    resultText = document.createTextNode("= " + number)
-    newResult.appendChild(resultText)
-    resultElement.appendChild(newResult)
+    newResult = document.createElement("p");
+    resultText = document.createTextNode(number);
+    newResult.appendChild(resultText);
+    resultElement.appendChild(newResult);
 
     output.innerHTML = number;
 }
@@ -119,21 +200,21 @@ function egal() {
 function defaut() {
     number += id;
     equation += id;
-    ancienOutput.innerHTML = equation
+    ancienOutput.innerHTML = equation;
     output.innerHTML = number;
 }
 
 document.addEventListener("keydown", function(event) {
-    if(event.keyCode == 13) {
+    if(event.key == "Enter") {
         document.getElementById("egal").click();
     }
 
-    else if (event.keyCode == 8) {
-        document.getElementById("clear").click()
+    else if (event.key == "Backspace") {
+        document.getElementById("clear").click();
     }
 
-    else if (event.keyCode == 46) {
-        document.getElementById("allClear").click()
+    else if (event.key == "Delete") {
+        document.getElementById("allClear").click();
     }
 
     else {
@@ -149,22 +230,19 @@ document.addEventListener("keydown", function(event) {
 //Error
 
 window.addEventListener('error', () => {
-    alert("Error !!");
+    alert("Error !! ");
+    newHistorique = "";
     allClear();
 })
 
-// Toggle Recap
+// Toggle Recap jQuery
 
-let historiqueButton = document.querySelector(".historiqueButton");
-let windowHistorique = document.querySelector(".windowHistorique");
-windowHistorique.style.display = "none";
+$(".historiqueButton").on("click", function () {
+    $(".windowHistorique").slideToggle("slow");
+    });
 
-historiqueButton.addEventListener("click", function toggle() {
+//Toggle Buttons Scientifique
 
-    if(windowHistorique.style.display === "none"){
-        windowHistorique.style.display = "block";
-    }
-    else {
-        windowHistorique.style.display = "none";
-    }
-})
+$(".scientifButton").on("click", function () {
+    $(".scientifiqueButtons").toggle();
+    });
