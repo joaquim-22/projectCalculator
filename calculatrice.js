@@ -113,7 +113,7 @@ function mathRound (){
     equation = number;
 
     newResult = document.createElement("p");
-    resultText = document.createTextNode(+ number);
+    resultText = document.createTextNode(number);
     newResult.appendChild(resultText);
     resultElement.appendChild(newResult);
 
@@ -160,10 +160,21 @@ function factorial (){
 }
 
 function pi () {
+
+    newHistorique = document.createElement("p");
+    historiqueText = document.createTextNode(equation + "π");
+    newHistorique.appendChild(historiqueText);
+    historiqueElement.appendChild(newHistorique);
+
     number = Math.PI;
-    ancienOutput.innerHTML = equation;
+    ancienOutput.innerHTML = equation + number;
     equation += number;
     output.innerHTML = number;
+
+    newResult = document.createElement("p");
+    resultText = document.createTextNode(number);
+    newResult.appendChild(resultText);
+    resultElement.appendChild(newResult);
 }
 
 function pointSymbol () {
